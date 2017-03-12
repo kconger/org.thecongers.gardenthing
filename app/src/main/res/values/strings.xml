@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grove Garden</string>
+
+    <string name="logo_description">Logo</string>
+    <string name="temperature_label">Temperature</string>
+    <string name="humidity_label">Humidity</string>
+    <string name="ambient_label">Ambient Light</string>
+    <string name="ir_label">Infrared Light</string>
+    <string name="lux_label">LUX</string>
+    <string name="co2_label">Carbon Dioxide</string>
+
+    <string name="menu_info">Information</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_back">Back</string>
+
+    <string name="pref_sensor_category_title">Sensors</string>
+    <string name="pref_sensorinterval_title">Sensor Polling Interval</string>
+    <string-array name="pref_sensorintervals">
+        <item>1 minutes</item>
+        <item>5 mintues</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+    </string-array>
+    <string name="pref_moisturesensorone_title">Moisture Sensor One</string>
+    <string name="pref_moisturesensorone_label_title">Moisture Sensor One Label</string>
+    <string name="pref_moisturesensortwo_title">Moisture Sensor Two</string>
+    <string name="pref_moisturesensortwo_label_title">Moisture Sensor Two Label</string>
+    <string name="pref_moisturesensorthree_title">Moisture Sensor Three</string>
+    <string name="pref_moisturesensorthree_label_title">Moisture Sensor Three Label</string>
+    <string name="pref_moisturesensor_label_sumamry">Label for location or plant name</string>
+    <string name="pref_temphumsensor_title">Temperature and Humidity Sensor</string>
+    <string name="pref_temphumsensorport_title">Temperature and Humidty Sensor Digital Port</string>
+    <string-array name="pref_temphumsensorports">
+        <item>D7</item>
+        <item>D8</item>
+    </string-array>
+    <string name="pref_temperatureunit_title">Fahrenheit</string>
+    <string name="pref_lightsensor_title">Light Sensor</string>
+    <string name="pref_co2sensor_title">Carbon Dioxide Sensor</string>
+    <string name="pref_alerting_category_title">Alerting</string>
+    <string name="pref_moisturealerts_title">Moisture Alerts</string>
+    <string name="pref_temperaturealerts_title">Temperature Alerts</string>
+    <string name="pref_humidityalerts_title">Humidity Alerts</string>
+    <string name="pref_lightalerts_title">Light Alerts</string>
+    <string name="pref_co2alerts_title">Carbon Dioxide Alerts</string>
+    <string name="pref_alertslowthreshold_title">Low threshold</string>
+    <string name="pref_alertshighthreshold_title">High threshold</string>
+    <string name="pref_web_category_title">Web Settings</string>
+    <string name="pref_webpassword_title">Password</string>
+    <string name="pref_webpasswordagain_title">Password Again</string>
+
+    <string name="graph_domain_title">Time</string>
+    <string name="lux_graph_title">Garden Light LUX Last 24hrs</string>
+    <string name="lux_graph_range_title">LUX</string>
+    <string name="ir_graph_title">Garden Infrared Light Last 24hrs</string>
+    <string name="ir_graph_range_title">Infrared</string>
+    <string name="humidity_graph_title">Garden Humidity Last 24hrs</string>
+    <string name="humidity_graph_range_title">Humidity(%)</string>
+    <string name="co2_graph_title">Garden CO2 Last 24hrs</string>
+    <string name="co2_graph_range_title">CO2(ppm)</string>
+    <string name="temperature_graph_title">Garden Temperature Last 24hrs</string>
+    <string name="temperature_graph_range_title">Temperature</string>
+    <string name="ambient_graph_title">Garden Ambient Light Last 24hrs</string>
+    <string name="ambient_graph_range_title">Ambient Light</string>
+    <string name="soil_moisture_graph_range_title">Moisture</string>
+
+</resources>

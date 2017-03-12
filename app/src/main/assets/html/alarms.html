@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grove Garden Monitoring</title>
+    <meta http-equiv="refresh" content="60">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active danger"><a href="#" title="Alarms">&#9888</a></li>
+                <li role="presentation"><a href="/" title="Home">&#8962</a></li>
+                <li role="presentation"><a href="/journal" title="Journal">&#9997</a></li>
+                <li role="presentation"><a href="/reporting" title="Reporting">&#9991</a></li>
+                <li role="presentation"><a href="/settings">&#9881</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Grove Garden Monitoring</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h3>Active Alarms</h3>
+        <table class="table table-striped">
+            {{alarms}}
+        </table>
+    </div>
+    <footer class="footer">
+        <p>&copy; Keith Conger 2015</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

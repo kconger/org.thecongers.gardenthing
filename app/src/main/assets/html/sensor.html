@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grove Garden Monitoring</title>
+    <script type="text/javascript"
+            src="/js/dygraph-combined.js"></script>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="/" title="Home">&#8962</a></li>
+                <li role="presentation"><a href="/journal" title="Journal">&#9997</a></li>
+                <li role="presentation"><a href="/reporting" title="Reporting">&#9991</a></li>
+                <li role="presentation"><a href="/settings" title="Settings">&#9881</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Grove Garden Monitoring</h3>
+    </div>
+    <div class="jumbotron">
+        {{graph}}
+    </div>
+    <footer class="footer">
+        <p>&copy; Keith Conger 2015</p>
+    </footer>
+</div>
+</body>
+</html>

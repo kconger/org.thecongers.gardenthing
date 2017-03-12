@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="@string/pref_sensor_category_title">
+        <ListPreference
+            android:defaultValue="1"
+            android:title="@string/pref_sensorinterval_title"
+            android:entries="@array/pref_sensorintervals"
+            android:entryValues="@array/pref_sensorintervalvalues"
+            android:key="prefSensorInterval" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_moisturesensorone_title"
+            android:key="prefMoistureSensorOne" />
+        <EditTextPreference
+            android:title="@string/pref_moisturesensorone_label_title"
+            android:summary="@string/pref_moisturesensor_label_sumamry"
+            android:defaultValue="Plant One"
+            android:key="prefMoistureSensorOneLabel"
+            android:dependency="prefMoistureSensorOne"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_moisturesensortwo_title"
+            android:key="prefMoistureSensorTwo" />
+        <EditTextPreference
+            android:title="@string/pref_moisturesensortwo_label_title"
+            android:summary="@string/pref_moisturesensor_label_sumamry"
+            android:defaultValue="Plant Two"
+            android:key="prefMoistureSensorTwoLabel"
+            android:dependency="prefMoistureSensorTwo" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_moisturesensorthree_title"
+            android:key="prefMoistureSensorThree" />
+        <EditTextPreference
+            android:title="@string/pref_moisturesensorthree_label_title"
+            android:summary="@string/pref_moisturesensor_label_sumamry"
+            android:defaultValue="Plant Three"
+            android:key="prefMoistureSensorThreeLabel"
+            android:dependency="prefMoistureSensorThree" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:title="@string/pref_temphumsensor_title"
+            android:key="prefTemperatureHumiditySensor" />
+        <ListPreference
+            android:defaultValue="7"
+            android:title="@string/pref_temphumsensorport_title"
+            android:entries="@array/pref_temphumsensorports"
+            android:entryValues="@array/pref_temphumsensorportvalues"
+            android:key="prefTemperatureHumiditySensorPort"
+            android:dependency="prefTemperatureHumiditySensor"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:title="@string/pref_temperatureunit_title"
+            android:key="prefTemperatureUnit"
+            android:dependency="prefTemperatureHumiditySensor"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_lightsensor_title"
+            android:key="prefLightSensor" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_co2sensor_title"
+            android:key="prefCO2Sensor" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_alerting_category_title">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_moisturealerts_title"
+            android:key="prefAlertsMoisture" />
+        <EditTextPreference
+            android:defaultValue="300"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertslowthreshold_title"
+            android:key="prefAlertsMoistureLow"
+            android:dependency="prefAlertsMoisture"/>
+        <EditTextPreference
+            android:defaultValue="400"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertshighthreshold_title"
+            android:key="prefAlertsMoistureHigh"
+            android:dependency="prefAlertsMoisture"/>
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_temperaturealerts_title"
+            android:key="prefAlertsTemperature" />
+        <EditTextPreference
+            android:defaultValue="50"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertslowthreshold_title"
+            android:key="prefAlertsTemperatureLow"
+            android:dependency="prefAlertsTemperature"/>
+        <EditTextPreference
+            android:defaultValue="90"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertshighthreshold_title"
+            android:key="prefAlertsTemperatureHigh"
+            android:dependency="prefAlertsTemperature"/>
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_humidityalerts_title"
+            android:key="prefAlertsHumidity" />
+        <EditTextPreference
+            android:defaultValue="10"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertslowthreshold_title"
+            android:key="prefAlertsHumidityLow"
+            android:dependency="prefAlertsHumidity"/>
+        <EditTextPreference
+            android:defaultValue="60"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertshighthreshold_title"
+            android:key="prefAlertsHumidityHigh"
+            android:dependency="prefAlertsHumidity"/>
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_co2alerts_title"
+            android:key="prefAlertsCO2" />
+        <EditTextPreference
+            android:defaultValue="100"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertslowthreshold_title"
+            android:key="prefAlertsCO2Low"
+            android:dependency="prefAlertsCO2"/>
+        <EditTextPreference
+            android:defaultValue="1000"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertshighthreshold_title"
+            android:key="prefAlertsCO2High"
+            android:dependency="prefAlertsCO2"/>
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:title="@string/pref_lightalerts_title"
+            android:key="prefAlertsLight" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertslowthreshold_title"
+            android:key="prefAlertsLightLow"
+            android:dependency="prefAlertsLight"/>
+        <EditTextPreference
+            android:defaultValue="100000"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_alertshighthreshold_title"
+            android:key="prefAlertsLightHigh"
+            android:dependency="prefAlertsLight"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_web_category_title">
+        <EditTextPreference
+            android:inputType="textPassword"
+            android:defaultValue="secret"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_webpassword_title"
+            android:key="prefWebPassword"/>
+        </PreferenceCategory>
+</PreferenceScreen>

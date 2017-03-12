@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grove Garden Monitoring</title>
+    <script type="text/javascript"
+            src="/js/dygraph-combined.js"></script>
+    <script type="text/javascript"
+            src="/js/synchronizer.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/" title="Home">&#8962</a></li>
+                <li role="presentation"><a href="/journal" title="Journal">&#9997</a></li>
+                <li role="presentation" class="active"><a href="/reporting" title="Reporting">&#9991</a></li>
+                <li role="presentation"><a href="/settings" title="Settings">&#9881</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Grove Garden Monitoring</h3>
+    </div>
+    <div class="jumbotron">
+        <h3>Reporting</h3>
+        <form class="form" action="/reporting" method="post" enctype="multipart/form-data">
+            <label for="inputDateTimeBegin" class="sr-only">Begin Date</label>
+            Begin Date <input type="datetime-local" name="inputDateTimeBegin" id="inputDateTimeBegin" class="form-control" value="{{begindatetime}}" required autofocus>
+            <br>
+            <label for="inputDateTimeEnd" class="sr-only">End Date</label>
+            End Date <input type="datetime-local" name="inputDateTimeEnd" id="inputDateTimeEnd" class="form-control" value="{{enddatetime}}" required>
+            <input type="checkbox" name="inputSoilMoisture1" value="False">Soil Moisture One<br>
+            <input type="checkbox" name="inputSoilMoisture2" value="False">Soil Moisture Two<br>
+            <input type="checkbox" name="inputSoilMoisture3" value="False">Soil Moisture Three<br>
+            <input type="checkbox" name="inputTemperature" value="False">Temperature<br>
+            <input type="checkbox" name="inputHumidity" value="False">Humidity<br>
+            <input type="checkbox" name="inputAmbient" value="False">Ambient Light<br>
+            <input type="checkbox" name="inputIR" value="False">Infrared Light<br>
+            <input type="checkbox" name="inputLUX" value="False">LUX<br>
+            <input type="checkbox" name="inputCO2" value="False">Carbon Dioxide<br>
+            <input type="checkbox" name="inputJournal" value="False">Journal Entries<br>
+            <button id="btnSubmit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="jumbotron">
+        {{results}}
+    </div>
+    <footer class="footer">
+        <p>&copy; Keith Conger 2015</p>
+    </footer>
+</div>
+</body>
+</html>

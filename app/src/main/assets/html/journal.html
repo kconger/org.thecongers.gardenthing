@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grove Garden Monitoring</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
+
+    <script type="text/javascript"
+            src="/js/jquery-1.11.3.min.js"></script>
+    <script>
+    $(function() {
+    $('#btnSave').click(function() {
+
+        $.ajax({
+            url: '/journalSave',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                window.location.reload(true);
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+   });
+   </script>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/" title="Home">&#8962</a></li>
+                <li role="presentation" class="active"><a href="#" title="Journal">&#9997</a></li>
+                <li role="presentation"><a href="/reporting" title="Reporting">&#9991</a></li>
+                <li role="presentation"><a href="/settings" title="Settings">&#9881</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Grove Garden Monitoring</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h3>New Journal Entry</h3>
+        <form class="form">
+            <label for="inputDateTime" class="sr-only">Date</label>
+            Date <input type="datetime-local" name="inputDateTime" id="inputDateTime" class="form-control" value="{{curdatetime}}" required autofocus>
+            <br>
+            <label for="inputEntry" class="sr-only">Entry</label>
+            Entry <input type="text" name="inputEntry" id="inputEntry" class="form-control" required autofocus>
+            <br>
+            <button id="btnSave" class="btn btn-lg btn-primary btn-block" type="button">Save</button>
+        </form>
+    </div>
+    <div class="jumbotron">
+        <h3>Journal Entries</h3>
+        <form class="form">
+            <table class="table table-striped">
+                {{journal}}
+            </table>
+        </form>
+        <button id="btnDownload" class="btn btn-lg btn-primary btn-block" type="button" onclick="location.href='/export?id=9';">Download Journal</button>
+    </div>
+    <footer class="footer">
+        <p>&copy; Keith Conger 2015</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grove Garden Monitoring</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="/css/settings.css" rel="stylesheet">
+    <script type="text/javascript"
+            src="/js/jquery-1.11.3.min.js"></script>
+    <script>
+   function checkPasswordMatch() {
+    var password = $("#inputGardenerPassword").val();
+    var confirmPassword = $("#inputGardenerPasswordAgain").val();
+
+    if (password != confirmPassword) {
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+	document.getElementById("btnSave").disabled = true;
+    } else {
+	$("#divCheckPasswordMatch").html("");
+        document.getElementById("btnSave").disabled = false;
+    }
+    }
+
+   $(document).ready(function () {
+       $("#inputGardenerPasswordAgain").keyup(checkPasswordMatch);
+   });
+
+   $(function() {
+    $('#btnSave').click(function() {
+
+        $.ajax({
+            url: '/settingsSave',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                var modal = document.getElementById('myModal');
+                var spanx = document.getElementsByClassName("close")[0];
+
+                spanx.onclick = function() {
+                    modal.style.display = "none";
+                    window.location.reload(true);
+                }
+
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                        window.location.reload(true);
+                    }
+                }
+                modal.style.display = "block";
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+   });
+   </script>
+
+    <style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+</style>
+</head>
+<body>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            </br>
+            <p>Settings Saved</p>
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" ><a href="/" title="Home">&#8962</a></li>
+                <li role="presentation" ><a href="/journal" title="Journal">&#9997</a></li>
+                <li role="presentation"><a href="/reporting" title="Reporting">&#9991</a></li>
+                <li role="presentation" class="active"><a href="#" title="Settings">&#9881</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Grove Garden Monitoring</h3>
+    </div>
+    <div class="jumbotron">
+        <h1>Settings</h1>
+        <form class="form-settings" action="/settingsSave" method="post" enctype="multipart/form-data">
+            <h3>General</h3>
+            <label for="inputGardenerPassword" class="sr-only">Gardener Password</label>
+            Gardener Password <input type="password" name="inputGardenerPassword" id="inputGardenerPassword" class="form-control" placeholder="Password" value="{{webpassword}}" required>
+            <label for="inputGardenerPasswordAgain" class="sr-only">Gardener Password</label>
+            Gardener Password Again<input type="password" name="inputGardenerPasswordAgain" id="inputGardenerPasswordAgain" class="form-control" placeholder="Password" value="{{webpassword}}" required>
+            <div class="bg-danger" id="divCheckPasswordMatch">
+            </div>
+            <h3>Sensors</h3>
+            Polling Period, every
+            <select name="inputPollingPeriod">
+                <option value="1">One Minute</option>
+                <option value="5">5 Minutes</option>
+                <option value="10">10 Minutes</option>
+                <option value="15">15 Minutes</option>
+                <option value="30">30 Minutes</option>
+                <option value="60">1 Hour</option>
+            </select><br>
+            <input type="checkbox" name="inputLightSensor" value="True" {{lightsensor}}> Light Sensor<br>
+            <input type="checkbox" name="inputTHSensor" value="True" {{thsensor}}> Temperature and Humidty Sensor<br>
+            Temperature and Humidty Sensor Digital Port: <select name="inputTHLocation">
+            <option value="7">D7</option>
+            <option value="8">D8</option>
+        </select><br>
+            <input type="checkbox" name="inputFahrenheit" value="True" {{fahrenheit}}> Fahrenheit<br>
+            <input type="checkbox" name="inputMoistureSensor1" value="True" {{moisturesensor1}}> Moisture Sensor One<br>
+            <label for="inputMoistureSensor1Label" class="sr-only">Moisture Sensor One Label</label>
+            Moisture Sensor One Label <input type="text" name="inputMoistureSensor1Label" id="inputMoistureSensor1Label" class="form-control" placeholder="Plant One" value="{{moisture1label}}" required autofocus>
+            <input type="checkbox" name="inputMoistureSensor2" value="True" {{moisturesensor2}}> Moisture Sensor Two<br>
+            <label for="inputMoistureSensor2Label" class="sr-only">Moisture Sensor Two Label</label>
+            Moisture Sensor Two Label <input type="text" name="inputMoistureSensor2Label" id="inputMoistureSensor2Label" class="form-control" placeholder="Plant Two" value="{{moisture2label}}" required autofocus>
+            <input type="checkbox" name="inputMoistureSensor3" value="True" {{moisturesensor3}}> Moisture Sensor Three<br>
+            <label for="inputMoistureSensor3Label" class="sr-only">Moisture Sensor Three </label>
+            Moisture Sensor Three Label <input type="text" name="inputMoistureSensor3Label" id="inputMoistureSensor3Label" class="form-control" placeholder="Plant Three" value="{{moisture3label}}" required autofocus>
+            <input type="checkbox" name="inputCO2Sensor" value="True" {{co2sensor}}> CO2 Sensor<br>
+            <h3>Alerting</h3>
+            <input type="checkbox" name="inputMoistureAlerts" value="True" {{moisturealerts}}> Moisture Alerts<br>
+            Low Threshold: <input type="number" name="inputMoistureAlertLow" min="1" max="700" value="{{moisturealertlow}}"><br>
+            High Threshold: <input type="number" name="inputMoistureAlertHigh" min="1" max="700" value="{{moisturealerthigh}}"><br>
+            <input type="checkbox" name="inputTemperatureAlerts" value="True" {{temperaturealerts}}> Temperature Alerts<br>
+            Low Threshold: <input type="number" name="inputTemperatureAlertLow" min="0" max="120" value="{{temperaturealertlow}}"><br>
+            High Threshold: <input type="number" name="inputTemperatureAlertHigh" min="0" max="120" value="{{temperaturealerthigh}}"><br>
+            <input type="checkbox" name="inputHumidityAlerts" value="True" {{humidityalerts}}> Humidty Alerts<br>
+            Low Threshold: <input type="number" name="inputHumidityAlertLow" min="1" max="100" value="{{humidityalertlow}}"><br>
+            High Threshold: <input type="number" name="inputHumidityAlertHigh" min="1" max="100" value="{{humidityalerthigh}}"><br>
+            <input type="checkbox" name="inputLightAlerts" value="True" {{lightalerts}}> Light Alerts<br>
+            Low Threshold: <input type="number" name="inputLightAlertLow" min="0" max="10000" value="{{lightalertlow}}"><br>
+            High Threshold: <input type="number" name="inputLightAlertHigh" min="0" max="10000" value="{{lightalerthigh}}"><br>
+            <input type="checkbox" name="inputCO2Alerts" value="True" {{co2alerts}}> CO2 Alerts<br>
+            Low Threshold: <input type="number" name="inputCO2AlertLow" min="1" max="2000" value="{{co2alertlow}}"><br>
+            High Threshold: <input type="number" name="inputCO2AlertHigh" min="1" max="2000" value="{{co2alerthigh}}"><br>
+            <br>
+            <button id="btnSave" class="btn btn-lg btn-primary btn-block" type="button">Save</button>
+        </form>
+    </div>
+    <div class="jumbotron">
+        <h3>Advanced</h3>
+        <button id="btnPurgeDB" class="btn btn-lg btn-primary btn-danger btn-block" type="button" onclick="location.href='/databasePurge';">Purge Database</button>
+    </div>
+    <footer class="footer">
+        <p>&copy; Keith Conger 2015</p>
+    </footer>
+</div>
+</body>
+</html>
