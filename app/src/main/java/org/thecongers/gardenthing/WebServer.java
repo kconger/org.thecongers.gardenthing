@@ -126,19 +126,32 @@ public class WebServer extends NanoHTTPD {
                 String moisture3label = sharedPrefs.getString("prefMoistureSensorThreeLabel", "");
 
                 cursor.close();
-                sb.append("{\n");
-                sb.append("'ambient': '" + ambient + "',\n");
-                sb.append("'co2': '" + co2 + "',\n");
-                sb.append("'humidity': '" + humidity + "',\n");
-                sb.append("'ir': '" + ir + "',\n");
-                sb.append("'lux': '" + lux + "',\n");
-                sb.append("'soilmoisture1': '" + moisture1 + "',\n");
-                sb.append("'soilmoisture1label': '" + moisture1label + "',\n");
-                sb.append("'soilmoisture2': '" + moisture2 + "',\n");
-                sb.append("'soilmoisture2label': '" + moisture2label + "',\n");
-                sb.append("'soilmoisture3': '" + moisture3 + "',\n");
-                sb.append("'soilmoisture3label': '" + moisture3label + "',\n");
-                sb.append("'temperature': '" + temperature + "'\n");
+                sb.append("{");
+                sb.append("\n");
+                sb.append("'ambient': '" + ambient + "',");
+                sb.append("\n");
+                sb.append("'co2': '" + co2 + "',");
+                sb.append("\n");
+                sb.append("'humidity': '" + humidity + "',");
+                sb.append("\n");
+                sb.append("'ir': '" + ir + "',");
+                sb.append("\n");
+                sb.append("'lux': '" + lux + "',");
+                sb.append("\n");
+                sb.append("'moisturesensor1': '" + moisture1 + "',");
+                sb.append("\n");
+                sb.append("'moisturesensor1label': '" + moisture1label + "',");
+                sb.append("\n");
+                sb.append("'moisturesensor2': '" + moisture2 + "',");
+                sb.append("\n");
+                sb.append("'moisturesensor2label': '" + moisture2label + "',");
+                sb.append("\n");
+                sb.append("'moisturesensor3': '" + moisture3 + "',");
+                sb.append("\n");
+                sb.append("'moisturesensor3label': '" + moisture3label + "',");
+                sb.append("\n");
+                sb.append("'temperature': '" + temperature + "'");
+                sb.append("\n");
                 sb.append("}");
             } else if (query.equals("temperature")){
                 Cursor cursor = database.selectRecords("Temperature");
@@ -417,7 +430,7 @@ public class WebServer extends NanoHTTPD {
                     sb.append("'moisturealerthigh': '" + moisturealerthigh + "',\n");
                     sb.append("'temperaturealerts': '" + temperaturealerts + "',\n");
                     sb.append("'temperaturealertlow': '" + temperaturealertlow + "',\n");
-                    sb.append("'temperaturealerthigh': '" + temperaturealerthigh + "'\n");
+                    sb.append("'temperaturealerthigh': '" + temperaturealerthigh + "',\n");
                     sb.append("'webpassword': '" + webpassword + "'\n");
                     sb.append("}");
                 }
