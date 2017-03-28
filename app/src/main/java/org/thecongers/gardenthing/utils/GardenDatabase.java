@@ -9,7 +9,7 @@ import android.util.Log;
 public class GardenDatabase {
     private DatabaseHelper dbHelper;
     private SQLiteDatabase database;
-    private static final String TAG = "GroveGarden";
+    private static final String TAG = "GardenThing";
 
     public final static String CO2_TABLE="CO2";
     public final static String HUMIDITY_TABLE="Humidity";

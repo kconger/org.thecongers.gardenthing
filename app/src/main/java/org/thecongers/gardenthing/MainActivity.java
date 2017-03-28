@@ -53,7 +53,7 @@ import java.util.Enumeration;
 
 public class MainActivity extends AppCompatActivity implements GrovepiListener {
 
-    private static final String TAG = "GroveGarden";
+    private static final String TAG = "GardenThing";
     private static Grovepi grovepi = null;
 
     private SharedPreferences sharedPrefs;

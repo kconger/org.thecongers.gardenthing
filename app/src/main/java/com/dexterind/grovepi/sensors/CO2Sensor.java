@@ -25,13 +25,9 @@ public class CO2Sensor {
             mDevice.setParity(UartDevice.PARITY_NONE);
             mDevice.setStopBits(1);
 
+            // TODO: Actually get the CO2 sensor working
             String command = "FF0186000000000079";
             byte[] bcommand = HexStringToByteArray(command);
-            /*
-            String command = "FF0186000000000079";
-            byte[] command = {0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79};
-            Log.d(TAG,"Array: " + Arrays.toString(bcommand));
-            */
 
             int count = mDevice.write(bcommand, bcommand.length);
             Log.d(TAG, "Wrote " + count + " bytes to peripheral");

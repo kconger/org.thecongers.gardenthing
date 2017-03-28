@@ -23,7 +23,7 @@ public class WebServer extends NanoHTTPD {
     private GardenDatabase database;
     private Context callingContext;
 
-    private static final String TAG = "GroveGardenWeb";
+    private static final String TAG = "GardenThingWeb";
 
     public WebServer(Context context, int port) {
         super(port);

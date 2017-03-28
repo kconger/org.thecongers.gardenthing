@@ -33,7 +33,7 @@ public class HumidityActivity extends AppCompatActivity {
     Number[] valueArray;
     Number[] dateArray;
 
-    private static final String TAG = "GroveGarden";
+    private static final String TAG = "GardenThing";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
