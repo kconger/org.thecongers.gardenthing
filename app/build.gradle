@@ -40,6 +40,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.1.0'
     compile 'com.androidplot:androidplot-core:1.4.1'
     compile 'org.nanohttpd:nanohttpd:2.2.0'
-    //compile 'com.jjoe64:graphview:4.1.0'
-    compile files('libs/GraphView-4.0.1.jar')
 }
