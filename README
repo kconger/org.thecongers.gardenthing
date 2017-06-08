@@ -1,0 +1,14 @@
+GardenThing is AndroidThings Garden Monitoring and reporting system.  There is also a mobile Android client here: https://github.com/kconger/org.thecongers.gardenthingmobile
+
+You'll need:
+Raspberry Pi3
+Good powersupply
+SD Card
+Supported LCD (Offical 7")
+GrovePi
+Some Grove sensors
+
+1) Assemble the hardware
+2) Install AndroidThings and setup the Network
+3) Build and deploy app through Android Studio
+4) Configure through LCD or via a web browser at http://<YOUR IP>:8080/ default credentials of gardener/secret
