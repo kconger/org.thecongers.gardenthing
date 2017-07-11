@@ -12,3 +12,5 @@ Some Grove sensors
 2) Install AndroidThings and setup the Network
 3) Build and deploy app through Android Studio
 4) Configure through LCD or via a web browser at http://<YOUR IP>:8080/ default credentials of gardener/secret
+
+See http://gardenthing.thecongers.org for more detailed instructions
